@@ -1,5 +1,6 @@
 import { useLocation } from "react-router-dom";
 import { disablePageScroll, enablePageScroll } from "scroll-lock";
+
 import { brainwave } from "../assets";
 import { navigation } from "../constants";
 import Button from "./Button";
@@ -23,14 +24,14 @@ const Header = () => {
 
   const handleClick = () => {
     if (!openNavigation) return;
-    enablePageScroll();
 
+    enablePageScroll();
     setOpenNavigation(false);
   };
 
   return (
     <div
-      className={`fixed top-0 left-0  w-full z-50 border-b border-n-6 lg:bg-n-8/90 lg:backgroud-blud-sm ${
+      className={`fixed top-0 left-0 w-full z-50  border-b border-n-6 lg:bg-n-8/90 lg:backdrop-blur-sm ${
         openNavigation ? "bg-n-8" : "bg-n-8/90 backdrop-blur-sm"
       }`}
     >
@@ -40,7 +41,7 @@ const Header = () => {
         </a>
 
         <nav
-          className={` ${
+          className={`${
             openNavigation ? "flex" : "hidden"
           } fixed top-[5rem] left-0 right-0 bottom-0 bg-n-8 lg:static lg:flex lg:mx-auto lg:bg-transparent`}
         >
@@ -62,6 +63,7 @@ const Header = () => {
               </a>
             ))}
           </div>
+
           <HamburgerMenu />
         </nav>
 
@@ -72,7 +74,6 @@ const Header = () => {
           New account
         </a>
         <Button className="hidden lg:flex" href="#login">
-          {" "}
           Sign in
         </Button>
 
